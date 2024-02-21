@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class playerLetters : MonoBehaviour
 {
-    public lettersSO letters;
+    public LettersSO letters;
 
     PlayerInput playerInputManager;
     void Start()

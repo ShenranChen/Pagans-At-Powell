@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LetterInv", menuName = "ScriptableObjects/LetterStorage", order = 1)]
-public class lettersSO : ScriptableObject
+public class LettersSO : ScriptableObject
 {
     public int a = 0;
     public int b = 0;
