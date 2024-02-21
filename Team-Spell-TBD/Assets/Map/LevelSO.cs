@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelX_data", menuName = "ScriptableObjects/Level", order = 1)]
 public class LevelSO : ScriptableObject
 {
+    // enemy level will be changed and accessed
+    public float enemyLevel = 1;
+
     public float timeFactor = 0.15f;
     public float waveFactor = 1.15f;
 

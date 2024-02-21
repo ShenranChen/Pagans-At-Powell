@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8147ddc3694410448947ddefa092af6, type: 3}
+  m_Name: Level1_data
+  m_EditorClassIdentifier: 
+  enemyLevel: 1
+  timeFactor: 0.15
+  waveFactor: 1.15
+  enemy1: {fileID: 0}
+  enemy2: {fileID: 0}
+  enemy3: {fileID: 0}
+  enemy4: {fileID: 0}
+  enemy5: {fileID: 0}
+  wave1start: 5
+  wave2start: 30
+  wave3start: 60
+  wave4start: 120
+  wave5start: 180
+  waveBreak: 5

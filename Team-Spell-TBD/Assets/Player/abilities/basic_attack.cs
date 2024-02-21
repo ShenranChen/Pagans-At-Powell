@@ -16,6 +16,8 @@ public class basic_attack : MonoBehaviour
     private float base_attackRange = 2f;
     private float dist_to_attack = 1f;
     private float base_MV = 0.5f;
+    private float newAttackRange;
+    float abilityLevel;
 
     //public Animator animator;
     public Transform attackPoint;
@@ -26,7 +28,7 @@ public class basic_attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        abilityLevel = 1;
     }
 
     // Update is called once per frame
@@ -40,16 +42,15 @@ public class basic_attack : MonoBehaviour
         //timer setup
         if (attackCountdown > 0)
         {
-            attackCountdown -= Time.time;
+            attackCountdown -= Time.deltaTime;
         }
     }
 
     void OnBasicAttack()
     {
-        Debug.Log("basic attack trig");
-        
         if (attackCountdown <= 0)
         {
+            Debug.Log("basic attack trig");
             basicAttack();
         }
     }
@@ -58,7 +59,7 @@ public class basic_attack : MonoBehaviour
     {
         if (attackPoint == null)
             return;
-        Gizmos.DrawWireSphere(attackPoint.position, base_attackRange + (base_attackRange * playerStats.attackSize_mod * 0.1f));
+        Gizmos.DrawWireSphere(attackPoint.position + (normDirToMouse * dist_to_attack), newAttackRange);
     }
 
     private void basicAttack()
@@ -67,13 +68,13 @@ public class basic_attack : MonoBehaviour
         ////animator.SetTrigger("basic attack");
 
         // collider/triggers
-        float newAttackRange = base_attackRange + (base_attackRange * playerStats.attackSize_mod * 0.1f);
+        newAttackRange = base_attackRange + (base_attackRange * playerStats.attackSize_mod * 0.1f);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position + (normDirToMouse * dist_to_attack), newAttackRange, enemyLayer);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Enemy hit:  " + enemy.name);
-            //enemy.Get
+            enemy.GetComponent<EnemySetup>().TakeDamage(base_MV * playerStats.base_ATK * abilityLevel);
         }
 
 
@@ -82,7 +83,7 @@ public class basic_attack : MonoBehaviour
         // attack cooldown logic
         // reduce time between attacks by 15%, max attack speed is 200 attacks per second
         float temp = baseCooldownTime * (1 - (playerStats.attack_speed_mod * 0.15f));
-        attackCountdown = temp < minCooldownTime ? minCooldownTime : temp;
+        attackCountdown = (temp < minCooldownTime ? minCooldownTime : temp);
     }
 
     private Vector3 GetWorldPositionOfMouse()

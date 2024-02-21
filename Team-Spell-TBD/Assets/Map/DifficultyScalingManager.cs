@@ -8,45 +8,48 @@ public class DifficultyScalingManager : MonoBehaviour
     public LevelSO levelData;
 
     //class specific
-    private float secs;
-    private float mins;
     private float currWave;
-    private float enemyLevel;
+    private float levelTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyLevel = 1;
+        levelTime = 0;
+        currWave = 0;
+        levelData.enemyLevel = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= levelData.wave5start)
+        levelTime += Time.deltaTime;
+
+        if (levelTime >= levelData.wave5start)
         {
             currWave = 5;
         }
-        else if (Time.time >= levelData.wave4start)
+        else if (levelTime >= levelData.wave4start)
         {
             currWave = 4;
         }
-        else if (Time.time >= levelData.wave3start)
+        else if (levelTime >= levelData.wave3start)
         {
             currWave = 3;
         }
-        else if (Time.time >= levelData.wave2start)
+        else if (levelTime >= levelData.wave2start)
         {
             currWave = 2;
         }
-        else if (Time.time >= levelData.wave1start)
+        else if (levelTime >= levelData.wave1start)
         {
             currWave = 1;
         }
+
+        CalcEnemyLevel();
     }
 
-    void CalcTime()
+    void CalcEnemyLevel()
     {
-        secs = Mathf.FloorToInt(Time.time);
-        mins = Mathf.FloorToInt(Time.time / 60);
+        levelData.enemyLevel = Mathf.FloorToInt((levelTime / 60) * levelData.timeFactor * Mathf.Pow(levelData.waveFactor, currWave));
     }
 }
