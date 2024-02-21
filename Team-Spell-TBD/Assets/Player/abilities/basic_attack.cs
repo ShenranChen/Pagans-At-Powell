@@ -18,7 +18,6 @@ public class basic_attack : MonoBehaviour
     private float dist_to_attack = 1f;
     private float base_MV = 0.5f;
     private float newAttackRange;
-    float abilityLevel;
 
     //public Animator animator;
     public Transform attackPoint;
@@ -77,7 +76,7 @@ public class basic_attack : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Enemy hit:  " + enemy.name);
-            enemy.GetComponent<EnemySetup>().TakeDamage(base_MV * playerStats.base_ATK * abilityLevel);
+            enemy.GetComponent<EnemySetup>().TakeDamage(base_MV * playerStats.base_ATK * playerStats.ba_level);
         }
 
 
