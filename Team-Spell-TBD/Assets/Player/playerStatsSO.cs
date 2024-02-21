@@ -12,4 +12,9 @@ public class PlayerStatsSO : ScriptableObject
     // other stats
     public int base_HP = 100;
     public int base_ATK = 50;
+
+    // ability levels
+    public int a1_level = 1;
+    public int a2_level = 1;
+    public int ba_level = 1;
 }

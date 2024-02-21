@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,6 @@ public class basic_attack : MonoBehaviour
     private float dist_to_attack = 1f;
     private float base_MV = 0.5f;
     private float newAttackRange;
-    float abilityLevel;
 
     //public Animator animator;
     public Transform attackPoint;
@@ -67,6 +67,8 @@ public class basic_attack : MonoBehaviour
         // animation
         ////animator.SetTrigger("basic attack");
 
+        //Debug.Log("BA func trig");
+
         // collider/triggers
         newAttackRange = base_attackRange + (base_attackRange * playerStats.attackSize_mod * 0.1f);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position + (normDirToMouse * dist_to_attack), newAttackRange, enemyLayer);
@@ -74,7 +76,7 @@ public class basic_attack : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Enemy hit:  " + enemy.name);
-            enemy.GetComponent<EnemySetup>().TakeDamage(base_MV * playerStats.base_ATK * abilityLevel);
+            enemy.GetComponent<EnemySetup>().TakeDamage(base_MV * playerStats.base_ATK * playerStats.ba_level);
         }
 
 
