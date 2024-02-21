@@ -5,7 +5,7 @@ using UnityEngine;
 public class cameraFollowPlayer : MonoBehaviour
 {
     // Public variables
-    public GameObject camera;
+    public GameObject cam;
     public GameObject player;
 
     // Private variables
@@ -25,14 +25,14 @@ public class cameraFollowPlayer : MonoBehaviour
     void Update()
     {
         // get camera and player positions
-        cameraPosition = new Vector2(camera.GetComponent<Rigidbody2D>().position.x, camera.GetComponent<Rigidbody2D>().position.y);
+        cameraPosition = new Vector2(cam.GetComponent<Rigidbody2D>().position.x, cam.GetComponent<Rigidbody2D>().position.y);
         playerPosition = new Vector2(player.GetComponent<Rigidbody2D>().position.x, player.GetComponent<Rigidbody2D>().position.y);
 
         // find vector from camera to player
         Vector2 c2p = playerPosition - cameraPosition;
 
         // move camera in direction of player
-        camera.GetComponent<Rigidbody2D>().velocity = cameraFollowSpeed * c2p;
+        cam.GetComponent<Rigidbody2D>().velocity = cameraFollowSpeed * c2p;
 
     }
 }

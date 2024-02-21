@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -66,6 +67,8 @@ public class basic_attack : MonoBehaviour
     {
         // animation
         ////animator.SetTrigger("basic attack");
+
+        Debug.Log("BA func trig");
 
         // collider/triggers
         newAttackRange = base_attackRange + (base_attackRange * playerStats.attackSize_mod * 0.1f);
