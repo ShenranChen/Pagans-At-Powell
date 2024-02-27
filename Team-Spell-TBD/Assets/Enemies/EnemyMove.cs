@@ -7,12 +7,21 @@ public class EnemyMove : MonoBehaviour
     public float speed = 1f;
     private Transform player;
     private bool shouldMove = true;
+    public GameObject letterPrefab;
+
+    //testing
+    private LetterDropper letterDropper;
+    private LetterDisplay letterDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+
+        //testing
+        letterDropper = GetComponent<LetterDropper>();
+        letterDisplay = GetComponent<LetterDisplay>();
+
     }
 
     // Update is called once per frame
@@ -38,6 +47,20 @@ public class EnemyMove : MonoBehaviour
         {
             Debug.Log("Enemy touched the player!");
             shouldMove = false;
+
+            //testing
+            char letterToDrop = letterDropper.ChooseLetter();
+            Debug.Log(letterToDrop);
+            Vector3 currPos = transform.position;
+            gameObject.SetActive(false);
+
+            if (letterToDrop != ' ')
+            {
+                letterDisplay.SpawnLetter(letterToDrop, currPos);
+            }
+            
+            Destroy(gameObject);
+
 
         }
         else
