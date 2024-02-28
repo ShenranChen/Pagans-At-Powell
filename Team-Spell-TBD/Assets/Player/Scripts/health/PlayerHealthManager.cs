@@ -5,18 +5,14 @@ using UnityEngine;
 public class PlayerHealthManager : MonoBehaviour
 {
     public PlayerStatsSO playerStats;
-
+    public unlockAbilitySO unlockAbility;
     private float currentHP;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHP = playerStats.base_HP;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        unlockAbility.ability1 = false;
+        unlockAbility.ability2 = false;
     }
 }

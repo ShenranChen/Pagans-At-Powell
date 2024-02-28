@@ -6,12 +6,13 @@ public class ability1 : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject ability;
-    Rigidbody2D playerRB;
+    Rigidbody2D abilityRB;
     public unlockAbilitySO abilityUnlocks;
+    int abilityHealthVal = 6;
 
     void Start()
     {
-        playerRB = GetComponent<Rigidbody2D>();
+        abilityRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
