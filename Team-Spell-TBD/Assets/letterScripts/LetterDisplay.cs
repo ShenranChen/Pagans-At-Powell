@@ -10,13 +10,13 @@ public class LetterDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SpawnLetter(char letter, Vector3 position)
@@ -31,3 +31,4 @@ public class LetterDisplay : MonoBehaviour
         }
     }
 }
+
