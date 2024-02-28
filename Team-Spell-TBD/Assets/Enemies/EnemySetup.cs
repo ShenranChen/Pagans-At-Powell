@@ -15,12 +15,17 @@ public class EnemySetup : MonoBehaviour
 
     public bool isDead;
 
+    private LetterDropper letterDropper;
+    private LetterDisplay letterDisplay;
+
     void Start()
     {
         currentHP = enemyStats.baseHP + (levelData.enemyLevel * 0.8f);
         currentATK = enemyStats.baseATK + (levelData.enemyLevel * 0.8f);
         currentSPD = enemyStats.baseSPD + (levelData.enemyLevel * 0.2f);
         isDead = false;
+        letterDropper = GetComponent<LetterDropper>();
+        letterDisplay = GetComponent<LetterDisplay>();
     }
 
     // Update is called once per frame
@@ -43,7 +48,20 @@ public class EnemySetup : MonoBehaviour
 
     void Die()
     {
+        char letterToDrop = letterDropper.ChooseLetter();
+        Debug.Log(letterToDrop);
+
+        Vector3 currPos = transform.position;
+        gameObject.SetActive(false);
+
+        if (letterToDrop != ' ')
+        {
+            letterDisplay.SpawnLetter(letterToDrop, currPos);
+        }
+
+        isDead = true;
         Debug.Log("Enemy Died");
-        isDead=true;
+        Destroy(gameObject);
+        
     }
 }

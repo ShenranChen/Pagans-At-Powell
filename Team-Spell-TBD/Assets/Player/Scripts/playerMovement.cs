@@ -17,11 +17,14 @@ public class playerMovement : MonoBehaviour
     // Serialized private variables
     [SerializeField] private float playerSpeed = 5f;
 
+    private PlayerInv playerLetterInv;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerLetterInv = GetComponent<PlayerInv>();
     }
 
     // Update is called once per frame
@@ -40,5 +43,14 @@ public class playerMovement : MonoBehaviour
     public void disableMovementFor(float timeInSeconds)
     {
         disableMovementTimer = timeInSeconds;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Letter"))
+        {
+            playerLetterInv.AddLetterToInventory(other.gameObject.name[0]);
+            Destroy(other.gameObject);
+        }
     }
 }

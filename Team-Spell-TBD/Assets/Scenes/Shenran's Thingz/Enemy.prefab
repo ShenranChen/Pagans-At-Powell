@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  letterPrefab: {fileID: 0}
 --- !u!114 &-5774032307657784443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,10 +59,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9190865932971768150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce252c3de901e459ba465b4cbe6c71a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 618c6cdc1d3ff4dc39dc4c8273556a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letterPrefab: {fileID: 0}
 --- !u!114 &8747292565504510977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,12 +71,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9190865932971768150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a959b343160d841f0be0c1452f0e7b17, type: 3}
+  m_Script: {fileID: 11500000, guid: cf10c3bc89b8d4b5b9a69a45f07ca768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   letters:
-  - {fileID: 11400000, guid: 748598a23ace545d3be8cff74e304d63, type: 2}
-  - {fileID: 11400000, guid: 79988397923f7403abb5f457f3531b3d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &7261549097747487655
 SpriteRenderer:
   m_ObjectHideFlags: 0

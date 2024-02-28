@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LetterDropper : MonoBehaviour
 {
-    public GameObject letterPrefab;
 
     private Dictionary<char, float> letterProbabilities;
     private List<KeyValuePair<char, float>> cumulativeProbabilities;
@@ -100,6 +99,5 @@ public class LetterDropper : MonoBehaviour
 
         return ' '; 
     }
-
 
 }

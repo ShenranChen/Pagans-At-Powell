@@ -18,15 +18,7 @@ public class PlayerInv : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Letter"))
-        {
-            AddLetterToInventory(other.gameObject.name[0]);
-            Destroy(other.gameObject);
-        }
-    }
-    void AddLetterToInventory(char letter)
+    public void AddLetterToInventory(char letter)
     {
         switch (letter)
         {
