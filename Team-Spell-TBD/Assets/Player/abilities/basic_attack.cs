@@ -30,11 +30,6 @@ public class basic_attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = GetWorldPositionOfMouse();
-        Vector3 playerPos = transform.position;
-        Vector3 dirToMouse = mousePos - playerPos;
-        normDirToMouse = dirToMouse.normalized;
-
         //timer setup
         if (attackCountdown > 0)
         {

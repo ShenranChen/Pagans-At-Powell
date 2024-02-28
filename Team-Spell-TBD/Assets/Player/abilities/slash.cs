@@ -17,6 +17,14 @@ public class slash : MonoBehaviour
         abilityEvent.onAbilityActivated.AddListener(ActivateBasicAttack);
     }
 
+    private void Update()
+    {
+        Vector3 mousePos = GetWorldPositionOfMouse();
+        Vector3 playerPos = transform.position;
+        Vector3 dirToMouse = mousePos - playerPos;
+        normDirToMouse = dirToMouse.normalized;
+    }
+
     void ActivateBasicAttack()
     {
 
