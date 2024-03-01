@@ -13,14 +13,11 @@ public class EnemySetup : MonoBehaviour
     public float currentATK;
     public float currentSPD;
 
-    public bool isDead;
-
     void Start()
     {
         currentHP = enemyStats.baseHP + (levelData.enemyLevel * 0.8f);
         currentATK = enemyStats.baseATK + (levelData.enemyLevel * 0.8f);
         currentSPD = enemyStats.baseSPD + (levelData.enemyLevel * 0.2f);
-        isDead = false;
     }
 
     // Update is called once per frame
@@ -31,7 +28,7 @@ public class EnemySetup : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("Took dmg: " + damage + "\n Enemy Health: " + currentHP);
+        Debug.Log("Enemy Took dmg: " + damage);
 
         currentHP -= damage;
 
@@ -44,6 +41,6 @@ public class EnemySetup : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Died");
-        isDead=true;
+        Destroy(gameObject);
     }
 }

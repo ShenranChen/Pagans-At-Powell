@@ -39,7 +39,7 @@ public class EnemyMove : MonoBehaviour
             transform.Translate(direction * speed * Time.deltaTime);
         }
     }
-
+    /*
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("entered");
@@ -68,4 +68,5 @@ public class EnemyMove : MonoBehaviour
             Debug.Log("boo");
         }
     }
+    */
 }
