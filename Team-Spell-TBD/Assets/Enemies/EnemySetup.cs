@@ -13,8 +13,6 @@ public class EnemySetup : MonoBehaviour
     public float currentATK;
     public float currentSPD;
 
-    public bool isDead;
-
     private LetterDropper letterDropper;
     private LetterDisplay letterDisplay;
 
@@ -23,7 +21,7 @@ public class EnemySetup : MonoBehaviour
         currentHP = enemyStats.baseHP + (levelData.enemyLevel * 0.8f);
         currentATK = enemyStats.baseATK + (levelData.enemyLevel * 0.8f);
         currentSPD = enemyStats.baseSPD + (levelData.enemyLevel * 0.2f);
-        isDead = false;
+        
         letterDropper = GetComponent<LetterDropper>();
         letterDisplay = GetComponent<LetterDisplay>();
     }
@@ -59,9 +57,7 @@ public class EnemySetup : MonoBehaviour
             letterDisplay.SpawnLetter(letterToDrop, currPos);
         }
 
-        isDead = true;
         Debug.Log("Enemy Died");
-        Destroy(gameObject);
-        
+        Destroy(gameObject);        
     }
 }

@@ -17,4 +17,9 @@ public class PlayerStatsSO : ScriptableObject
     public int a1_level = 1;
     public int a2_level = 1;
     public int ba_level = 1;
+
+    // ability MV
+    public float a1_MV = 1.5f;
+    public float a2_MV = 3f;
+    public float ba_MV = 0.7f;
 }
