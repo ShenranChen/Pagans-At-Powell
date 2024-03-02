@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1279782827
+  m_SortingLayerID: 1820726227
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1337858714, guid: 008031a8c8f97b94b80e3ad446a0815a, type: 3}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c67a43860aeae4428995e41209b98cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 44051e43802ebd8468553b03c3c9b8dc, type: 2}
+  playerStats: {fileID: 11400000, guid: ae1770413fce58840ae7dfd8d0addd31, type: 2}
   slashMoveSpeed: 2
 --- !u!114 &-5722554386458893253
 MonoBehaviour:
@@ -136,10 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a8102144bc8854fa8133e63cef4f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 4194304
-  playerStats: {fileID: 11400000, guid: 44051e43802ebd8468553b03c3c9b8dc, type: 2}
+  playerStats: {fileID: 11400000, guid: ae1770413fce58840ae7dfd8d0addd31, type: 2}
 --- !u!50 &979216560560591652
 Rigidbody2D:
   serializedVersion: 4

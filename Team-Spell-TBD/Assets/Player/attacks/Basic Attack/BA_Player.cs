@@ -37,11 +37,7 @@ public class BA_player: MonoBehaviour
     }
 
     protected void basicAttack()
-    {
-        // raise event
-        basicAttackEvent.RaiseEvent();
-
-        // 
+    { 
         Instantiate(slashEffect, firePoint.position, firePoint.rotation);
 
         // reduce time between attacks by 15%, max attack speed is 200 attacks per second

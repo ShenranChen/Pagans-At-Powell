@@ -12,8 +12,8 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // IF YOU ARE GETTING ERROR MAKE SURE: your player game object has TAG: "Player"
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
     }
 
     // Update is called once per frame
@@ -29,21 +29,6 @@ public class EnemyMove : MonoBehaviour
 
             //move enemy toward player
             transform.Translate(direction * speed * Time.deltaTime);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("entered");
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Enemy touched the player!");
-            shouldMove = false;
-
-        }
-        else
-        {
-            Debug.Log("boo");
         }
     }
 }
