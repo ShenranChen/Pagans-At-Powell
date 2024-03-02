@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour
 {
+    public GameEventSO playerDeath;
     public PlayerStatsSO playerStats;
     public UnlockedAbilitiesSO unlockedAbilities;
     private float currentHP;
@@ -31,6 +32,7 @@ public class PlayerHealthManager : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player Died");
-        Destroy(gameObject);
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        playerDeath.RaiseEvent();
     }
 }

@@ -7,7 +7,7 @@ public class BA_player: MonoBehaviour
 {
     // Scriptable Objects
     public PlayerStatsSO playerStats;
-    public AbilityEventSO basicAttackEvent;
+    public GameEventSO basicAttackEvent;
 
     // publics
     public Transform firePoint;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,16 +9,17 @@ using UnityEngine.InputSystem;
 public class playerMovement : MonoBehaviour
 {
     // Public variables
+    public GameEventSO playerDeath;
 
     // Private variables
     private Rigidbody2D rb;
     private Vector2 inputVector;
     private float disableMovementTimer = 0f;
+    private bool playerDead = false;
+    private PlayerInv playerLetterInv;
 
     // Serialized private variables
     [SerializeField] private float playerSpeed = 5f;
-
-    private PlayerInv playerLetterInv;
 
 
     // Start is called before the first frame update
@@ -25,13 +27,20 @@ public class playerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerLetterInv = GetComponent<PlayerInv>();
+        playerDeath.onGameEvent.AddListener(DisableMovementDeath);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (disableMovementTimer <= 0) { rb.velocity = inputVector * playerSpeed; }
-        else { disableMovementTimer -= Time.deltaTime; }
+        if (disableMovementTimer <= 0 && !playerDead) 
+        {
+            rb.velocity = inputVector * playerSpeed;
+        }
+        else 
+        {
+            disableMovementTimer -= Time.deltaTime;
+        }
     }
 
     // OnMove is called on button press of move action
@@ -52,5 +61,10 @@ public class playerMovement : MonoBehaviour
             playerLetterInv.AddLetterToInventory(other.gameObject.name[0]);
             Destroy(other.gameObject);
         }
+    }
+
+    void DisableMovementDeath()
+    {
+        playerDead = true;
     }
 }
