@@ -8,3 +8,4 @@ public class LetterData : ScriptableObject
     public char letter;
     public GameObject prefab;
 }
+

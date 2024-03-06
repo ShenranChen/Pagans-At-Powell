@@ -5,7 +5,7 @@ using UnityEngine;
 public class LetterDisplay : MonoBehaviour
 {
     //need to change to 26
-    public LetterData[] letters = new LetterData[2];
+    public LetterData[] letters = new LetterData[26];
 
     // Start is called before the first frame update
     void Start()
