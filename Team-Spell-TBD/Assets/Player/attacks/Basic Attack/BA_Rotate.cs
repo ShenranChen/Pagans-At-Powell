@@ -6,7 +6,7 @@ using UnityEngine;
 // attach to slash attack animation object
 public class BA_Rotate : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
+    [SerializeField] float speed = 10f;
 
     void Update()
     {

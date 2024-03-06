@@ -45,6 +45,9 @@ TagManager:
   - name: Ground
     uniqueID: 1664212649
     locked: 0
+  - name: objects
+    uniqueID: 803141311
+    locked: 0
   - name: Actors
     uniqueID: 1985038365
     locked: 0

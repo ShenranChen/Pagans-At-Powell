@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using Unity.PlasticSCM.Editor.WebApi;
 
 public class BA_player: MonoBehaviour
 {
@@ -15,7 +16,13 @@ public class BA_player: MonoBehaviour
 
     [SerializeField] private float baseCooldownTime = 2f;
     [SerializeField] private float minCooldownTime = 0.005f;
+    public float currentCooldownTime;
     private float attackCountdown = 0f;
+
+    private void Start()
+    {
+        currentCooldownTime = baseCooldownTime;
+    }
 
     void Update()
     {
@@ -36,12 +43,16 @@ public class BA_player: MonoBehaviour
         }
     }
 
-    protected void basicAttack()
+    private void basicAttack()
     { 
         Instantiate(slashEffect, firePoint.position, firePoint.rotation);
+        attackCountdown = (currentCooldownTime < minCooldownTime ? minCooldownTime : currentCooldownTime);
+        basicAttackEvent.RaiseEvent();
+    }
 
+    public void UpgradeBasicAttack()
+    {
         // reduce time between attacks by 15%, max attack speed is 200 attacks per second
-        float temp = baseCooldownTime * (1 - (playerStats.attack_speed_mod * 0.15f));
-        attackCountdown = (temp < minCooldownTime ? minCooldownTime : temp);
+        currentCooldownTime = baseCooldownTime * (1 - (playerStats.attack_speed_mod * 0.15f));
     }
 }
