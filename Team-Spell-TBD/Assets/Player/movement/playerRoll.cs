@@ -14,11 +14,13 @@ public class playerRoll : MonoBehaviour
     private float rollTimer;
     private float cooldownTimer;
     private Rigidbody2D rb;
+    private Animator ani;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,11 +54,13 @@ public class playerRoll : MonoBehaviour
 
     void startRollAnimation()
     {
-        GetComponent<SpriteRenderer>().color = Color.grey;
+        //GetComponent<SpriteRenderer>().color = Color.grey;
+        ani.SetBool("IsRolling", true);
     }
 
     void endRollAnimation()
     {
-        GetComponent<SpriteRenderer>().color = Color.white;
+        //GetComponent<SpriteRenderer>().color = Color.white;
+        ani.SetBool("IsRolling", false);
     }
 }
