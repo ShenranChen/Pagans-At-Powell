@@ -13,7 +13,7 @@ public class BA_Collider : MonoBehaviour
         Debug.Log("Enemy Collision Detected");
 
         GameObject hitObject = collider.gameObject;
-        if (hitObject != null && !hitList.Contains(hitObject))
+        if (collider.CompareTag("Enemy") && !hitList.Contains(hitObject))
         {
             hitList.Add(hitObject);
             hitObject.GetComponent<EnemySetup>().TakeDamage(playerStats.base_ATK * playerStats.ba_MV);

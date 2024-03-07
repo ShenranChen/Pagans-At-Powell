@@ -58,7 +58,9 @@ public class playerMovement : MonoBehaviour
     {
         if (other.CompareTag("Letter"))
         {
+            Debug.Log("1 " + playerLetterInv.lettersInventory.Z);
             playerLetterInv.AddLetterToInventory(other.gameObject.name[0]);
+            Debug.Log("2 " + playerLetterInv.lettersInventory.Z);
             Destroy(other.gameObject);
         }
     }

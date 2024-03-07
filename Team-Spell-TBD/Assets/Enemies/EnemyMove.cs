@@ -12,7 +12,6 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // IF YOU ARE GETTING ERROR MAKE SURE: your player game object has TAG: "Player"
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
