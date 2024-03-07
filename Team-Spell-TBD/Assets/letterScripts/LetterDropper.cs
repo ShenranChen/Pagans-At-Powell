@@ -79,7 +79,7 @@ public class LetterDropper : MonoBehaviour
 
     public char ChooseLetter()
     {
-        float randomNumber = Random.Range(100f, 100f);
+        float randomNumber = Random.Range(0f, 110f);
         Debug.Log(randomNumber);
         foreach (var item in cumulativeProbabilities)
         {

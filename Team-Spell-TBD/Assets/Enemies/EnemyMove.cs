@@ -30,4 +30,34 @@ public class EnemyMove : MonoBehaviour
             transform.Translate(direction * speed * Time.deltaTime);
         }
     }
+
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //     Debug.Log("entered");
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         Debug.Log("Enemy touched the player!");
+    //         shouldMove = false;
+ 
+    //         //testing
+    //         char letterToDrop = letterDropper.ChooseLetter();
+    //         Debug.Log(letterToDrop);
+    //         Vector3 currPos = transform.position;
+    //         gameObject.SetActive(false);
+ 
+    //         if (letterToDrop != ' ')
+    //         {
+    //             letterDisplay.SpawnLetter(letterToDrop, currPos);
+    //         }
+ 
+    //        Destroy(gameObject);
+ 
+ 
+    //     }
+    //     else
+    //      {
+    //            Debug.Log("boo");
+    //      }
+    // }
+
 }
