@@ -21,9 +21,9 @@ public class EnemySetup : MonoBehaviour
         currentHP = enemyStats.baseHP + (levelData.enemyLevel * 0.8f);
         currentATK = enemyStats.baseATK + (levelData.enemyLevel * 0.8f);
         currentSPD = enemyStats.baseSPD + (levelData.enemyLevel * 0.2f);
-        
-        //letterDropper = GetComponent<LetterDropper>();
-        //letterDisplay = GetComponent<LetterDisplay>();
+
+        letterDropper = GetComponent<LetterDropper>();
+        letterDisplay = GetComponent<LetterDisplay>();
     }
 
     // Update is called once per frame
@@ -46,8 +46,10 @@ public class EnemySetup : MonoBehaviour
 
     void Die()
     {
-        /*
+        Debug.Log("hey");
+
         char letterToDrop = letterDropper.ChooseLetter();
+        Debug.Log("hey2");
         Debug.Log(letterToDrop);
 
         Vector3 currPos = transform.position;
@@ -57,7 +59,7 @@ public class EnemySetup : MonoBehaviour
         {
             letterDisplay.SpawnLetter(letterToDrop, currPos);
         }
-        */
+        
 
         Debug.Log("Enemy Died");
         Destroy(gameObject);        

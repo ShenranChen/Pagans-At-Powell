@@ -18,7 +18,7 @@ public class LetterDropper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -90,14 +90,15 @@ public class LetterDropper : MonoBehaviour
         }
 
         //cumulative adds up to 99.999
-        if(randomNumber == 100f)
+        if (randomNumber == 100f)
         {
             return 'Z';
         }
 
         Debug.Log("BAD");
 
-        return ' '; 
+        return ' ';
     }
 
 }
+
