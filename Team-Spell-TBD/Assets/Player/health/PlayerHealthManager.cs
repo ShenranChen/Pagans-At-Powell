@@ -69,4 +69,18 @@ public class PlayerHealthManager : MonoBehaviour
     {
         shieldHealth += ab_WordLength * 10;
     }
+
+
+    public void HealAbility()
+    {
+        currentHP += 40;
+        float tempHp = currentHP;
+        if(currentHP > playerStats.base_HP)
+        {
+            currentHP = playerStats.base_HP;
+            tempHp -= currentHP;
+            shieldHealth += tempHp;
+        }
+        playerTakeDamage.RaiseEvent();
+    }
 }

@@ -33,7 +33,7 @@ public class AbilitiesHud : MonoBehaviour
     public void StartTimer()
     {
         maxTimer = basicAttackInfo.currentCooldownTime;
-        maxTimer = currTimer;
+        currTimer = maxTimer;
         cooldown.fillAmount = 1;
     }
 }
