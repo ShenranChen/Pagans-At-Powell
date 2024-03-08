@@ -9,6 +9,32 @@ public class PlayerInv : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lettersInventory.A = 0;
+        lettersInventory.B = 0;
+        lettersInventory.C = 0; 
+        lettersInventory.D = 0; 
+        lettersInventory.E = 0; 
+        lettersInventory.F = 0; 
+        lettersInventory.G = 0; 
+        lettersInventory.H = 0; 
+        lettersInventory.I = 0; 
+        lettersInventory.J = 0; 
+        lettersInventory.K = 0; 
+        lettersInventory.L = 0; 
+        lettersInventory.M = 0; 
+        lettersInventory.N = 0; 
+        lettersInventory.O = 0; 
+        lettersInventory.P = 0; 
+        lettersInventory.Q = 0; 
+        lettersInventory.R = 0; 
+        lettersInventory.S = 0; 
+        lettersInventory.T = 0; 
+        lettersInventory.U = 0; 
+        lettersInventory.V = 0; 
+        lettersInventory.W = 0; 
+        lettersInventory.X = 0; 
+        lettersInventory.Y = 0; 
+        lettersInventory.Z = 0; 
 
     }
 

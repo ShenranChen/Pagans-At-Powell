@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class InventoryUIManager : MonoBehaviour
 {
     public GameObject inventoryPanel;
 
     private bool isInventoryVisible = false;
+
+    void Start()
+    {
+        inventoryPanel.SetActive(false);
+    }
 
     public void ToggleInventory()
     {
