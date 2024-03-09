@@ -14,9 +14,12 @@ public class PlayerHealthManager : MonoBehaviour
     public float currentHP;
     public float shieldHealth;
 
+    private bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         shieldHealth = 0;
         currentHP = playerStats.base_HP;
 
@@ -36,8 +39,9 @@ public class PlayerHealthManager : MonoBehaviour
         Debug.Log("Player Health: " + currentHP);
         Debug.Log("Player Shield: " + shieldHealth);
 
-        if (currentHP < 0 )
+        if (currentHP < 0 && isDead == false)
         {
+            isDead = true;
             Die();
         }
 

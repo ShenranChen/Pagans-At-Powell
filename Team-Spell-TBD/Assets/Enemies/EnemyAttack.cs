@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,10 +8,10 @@ public class EnemyAttack : MonoBehaviour
 {
     public LayerMask playerLayer;
 
-    private float attackInterval = 1;
+    private float attackCD = 1;
     private float timer = 0;
     private float currentATK;
-
+    private PlayerHealthManager playerHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -32,28 +33,27 @@ public class EnemyAttack : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        Debug.Log("Enemy Collided with " + collider.gameObject.name);
-
-        if (collider.gameObject != null && timer <= 0)
+        else if (playerHealth != null && timer <= 0)
         {
-            var playerLayerMask = LayerMask.NameToLayer("Player"); // Replace with your actual player layer name
-            if (collider.gameObject.layer == playerLayerMask)
-            {
-                Debug.Log("Player Collision Detected");
-                var playerHealthManager = collider.gameObject.GetComponent<PlayerHealthManager>();
-                if (playerHealthManager != null)
-                {
-                    playerHealthManager.TakeDamage(currentATK);
-                    timer = attackInterval;
-                }
-                else
-                {
-                    Debug.LogError("PlayerHealthManager component not found on collided object.");
-                }
-            }
+            playerHealth.TakeDamage(currentATK);
+            timer = attackCD;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collider)
+    {
+        if (collider.gameObject != null && collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Debug.Log("Enemy Collider Enter Player");
+            playerHealth = collider.gameObject.GetComponent<PlayerHealthManager>();
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collider)
+    {
+        if (collider.gameObject != null && collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Debug.Log("Enemy Collider Exit Player");
+            playerHealth = null;
         }
     }
 }
