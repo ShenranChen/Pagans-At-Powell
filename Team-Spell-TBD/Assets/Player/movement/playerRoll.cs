@@ -11,6 +11,8 @@ public class playerRoll : MonoBehaviour
     [SerializeField] private float CooldownDuraiton = 0.5f;
     [SerializeField] private float rollSpeed = 20f;
 
+    [SerializeField] private AudioClip rollSoundClip;
+
     private float rollTimer;
     private float cooldownTimer;
     private Rigidbody2D rb;
@@ -49,6 +51,9 @@ public class playerRoll : MonoBehaviour
 
             // Activate some visual effect
             startRollAnimation();
+
+            // Play roll sound
+            SoundEffectsManager.instance.PlaySoundFXClip(rollSoundClip, transform, 1f);
         }
     }
 

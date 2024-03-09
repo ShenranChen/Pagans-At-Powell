@@ -14,6 +14,8 @@ public class Rocket_ProjectileEffect : MonoBehaviour
     [SerializeField] float projectileMoveSpeed = 30f; // The speed of the rocket when it launches
     [SerializeField] float stallTime = 1f; // The amount of time the rocket takes before it launches in seconds
 
+    [SerializeField] private AudioClip strokeSoundClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,9 @@ public class Rocket_ProjectileEffect : MonoBehaviour
             {
                 rb.velocity = transform.right * projectileMoveSpeed;
                 anim.speed = 1f + playerStats.attack_speed_mod / projectileMoveSpeed;
+
+                SoundEffectsManager.instance.PlaySoundFXClip(strokeSoundClip, transform, 1f);
+
                 liveTime = -1f;
             }
             else { liveTime += Time.deltaTime; }

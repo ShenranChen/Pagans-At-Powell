@@ -14,8 +14,11 @@ public class Rocket_player: MonoBehaviour
     public Transform firePoint;
     public GameObject projectileEffect;
 
+    [SerializeField] private AudioClip scribbleSoundClip;
+
     [SerializeField] private float baseCooldownTime = 5f;
     [SerializeField] private float minCooldownTime = 0.005f;
+
     public float currentCooldownTime;
     private float attackCountdown = 0f;
 
@@ -48,6 +51,8 @@ public class Rocket_player: MonoBehaviour
         Instantiate(projectileEffect, firePoint.position, firePoint.rotation);
         attackCountdown = (currentCooldownTime < minCooldownTime ? minCooldownTime : currentCooldownTime);
         ability2Event.RaiseEvent();
+
+        SoundEffectsManager.instance.PlaySoundFXClip(scribbleSoundClip, transform, 1f);
     }
 
     public void UpgradeRocket()

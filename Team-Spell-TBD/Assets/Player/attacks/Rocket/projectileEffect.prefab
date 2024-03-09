@@ -125,6 +125,7 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: ae1770413fce58840ae7dfd8d0addd31, type: 2}
   projectileMoveSpeed: 30
   stallTime: 1
+  strokeSoundClip: {fileID: 8300000, guid: 151b7159eefae2c4b9d330f23ee68ae2, type: 3}
 --- !u!114 &-5089457341383610766
 MonoBehaviour:
   m_ObjectHideFlags: 0
