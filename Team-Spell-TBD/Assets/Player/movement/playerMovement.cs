@@ -16,8 +16,6 @@ public class playerMovement : MonoBehaviour
     private Vector2 inputVector;
     private float disableMovementTimer = 0f;
     private bool playerDead = false;
-    private PlayerInv playerLetterInv;
-    private LetterUIUpdate letterUIUpdate;
 
     // Serialized private variables
     [SerializeField] private float playerSpeed = 5f;
@@ -27,8 +25,6 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerLetterInv = GetComponent<PlayerInv>();
-        letterUIUpdate = GetComponent<LetterUIUpdate>();
         playerDeath.onGameEvent.AddListener(DisableMovementDeath);
     }
 
@@ -54,18 +50,6 @@ public class playerMovement : MonoBehaviour
     public void disableMovementFor(float timeInSeconds)
     {
         disableMovementTimer = timeInSeconds;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Letter"))
-        {
-            Debug.Log("1 " + playerLetterInv.lettersInventory.Z);
-            playerLetterInv.AddLetterToInventory(other.gameObject.name[0]);
-            letterUIUpdate.RefreshUI();
-            Debug.Log("2 " + playerLetterInv.lettersInventory.Z);
-            Destroy(other.gameObject);
-        }
     }
 
     void DisableMovementDeath()
