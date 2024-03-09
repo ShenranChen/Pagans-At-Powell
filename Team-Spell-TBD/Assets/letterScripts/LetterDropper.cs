@@ -25,12 +25,12 @@ public class LetterDropper : MonoBehaviour
     void InitializeProbabilities()
     {
         float totalKeyProb = 80f;
-        float extra4E = 2f;
+        float extra4S = 2f;
 
-        float eProb = (totalKeyProb / 9) + extra4E;
-        float otherKeyProb = (totalKeyProb - eProb) / 8;
+        float sProb = (totalKeyProb / 10) + extra4S;
+        float otherKeyProb = (totalKeyProb - sProb) / 9;
 
-        int nonKeyCount = 26 - 9; //key letter: r o c k e t h a l
+        int nonKeyCount = 26 - 10; //key letter: r o c k e t s l a h
         float nonKeyProb = 20f / nonKeyCount;
 
 
@@ -40,14 +40,15 @@ public class LetterDropper : MonoBehaviour
             {'O', otherKeyProb},
             {'C', otherKeyProb},
             {'K', otherKeyProb},
-            {'E', eProb},
+            {'E', otherKeyProb},
             {'T', otherKeyProb},
-            {'H', otherKeyProb},
+            {'S', sProb},
+            {'L', otherKeyProb},
             {'A', otherKeyProb},
-            {'L', otherKeyProb}
+            {'H', otherKeyProb}
         };
 
-        foreach (char letter in "BDFGIJMNPQSUVWXYZ")
+        foreach (char letter in "BDFGIJMNPQUVWXYZ")
         {
             letterProbabilities[letter] = nonKeyProb;
         }
@@ -79,7 +80,7 @@ public class LetterDropper : MonoBehaviour
 
     public char ChooseLetter()
     {
-        float randomNumber = Random.Range(100f, 100f);
+        float randomNumber = Random.Range(0f, 110f);
         Debug.Log(randomNumber);
         foreach (var item in cumulativeProbabilities)
         {
