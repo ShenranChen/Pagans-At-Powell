@@ -14,6 +14,8 @@ public class BA_player: MonoBehaviour
     public Transform firePoint;
     public GameObject slashEffect;
 
+    [SerializeField] private AudioClip basicAttackSoundClip;
+
     [SerializeField] private float baseCooldownTime = 2f;
     [SerializeField] private float minCooldownTime = 0.005f;
     public float currentCooldownTime;
@@ -48,6 +50,8 @@ public class BA_player: MonoBehaviour
         Instantiate(slashEffect, firePoint.position, firePoint.rotation);
         attackCountdown = (currentCooldownTime < minCooldownTime ? minCooldownTime : currentCooldownTime);
         basicAttackEvent.RaiseEvent();
+
+        SoundEffectsManager.instance.PlaySoundFXClip(basicAttackSoundClip, transform, 1f);
     }
 
     public void UpgradeBasicAttack()
