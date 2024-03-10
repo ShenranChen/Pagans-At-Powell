@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6141348422074495891}
   - component: {fileID: -6328204339423281185}
   - component: {fileID: 8206573540145512459}
+  - component: {fileID: 8799985503385306265}
   m_Layer: 16
   m_Name: Z
   m_TagString: Letter
@@ -158,3 +159,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8799985503385306265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926261790100758286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9ed68f1ced5496488aa99f3cc98594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

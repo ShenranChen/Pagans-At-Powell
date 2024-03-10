@@ -57,6 +57,7 @@ public class Rocket_player: MonoBehaviour
 
     public void UpgradeRocket()
     {
+        Debug.Log("UPGRADE ROCKET");
         // reduce time between attacks by 15%, max attack speed is 200 attacks per second
         currentCooldownTime = baseCooldownTime * (1 - (playerStats.attack_speed_mod * 0.15f));
     }

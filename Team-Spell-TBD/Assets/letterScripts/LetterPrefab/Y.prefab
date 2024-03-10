@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6141348422074495891}
   - component: {fileID: 5059252640946997776}
   - component: {fileID: 7702346184361887038}
+  - component: {fileID: -198670068667225158}
   m_Layer: 16
   m_Name: Y
   m_TagString: Letter
@@ -142,7 +143,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.47295135, y: -0.28203523}
@@ -158,3 +159,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4816889, y: 2.3559296}
   m_EdgeRadius: 0
+--- !u!114 &-198670068667225158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926261790100758286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9ed68f1ced5496488aa99f3cc98594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

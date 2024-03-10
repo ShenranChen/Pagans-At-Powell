@@ -56,6 +56,7 @@ public class BA_player: MonoBehaviour
 
     public void UpgradeBasicAttack()
     {
+        Debug.Log("UPGRADE SLASH");
         // reduce time between attacks by 15%, max attack speed is 200 attacks per second
         currentCooldownTime = baseCooldownTime * (1 - (playerStats.attack_speed_mod * 0.15f));
     }

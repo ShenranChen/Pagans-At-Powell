@@ -28,7 +28,7 @@ public class PlayerHealthManager : MonoBehaviour
 
         healthText.text = currentHP.ToString() + " / " + currentHP.ToString();
 
-        //GainAbility(10);
+        //GainAbility(100000);
     }
 
     public void TakeDamage(float damage)
