@@ -52,7 +52,8 @@ public class Rocket_player: MonoBehaviour
         attackCountdown = (currentCooldownTime < minCooldownTime ? minCooldownTime : currentCooldownTime);
         ability2Event.RaiseEvent();
 
-        SoundEffectsManager.instance.PlaySoundFXClip(scribbleSoundClip, transform, 1f);
+        // play sound
+        SoundEffectsManager.instance.PlaySoundFXClip(scribbleSoundClip, transform, PlayerPrefs.GetFloat("volume"));
     }
 
     public void UpgradeRocket()

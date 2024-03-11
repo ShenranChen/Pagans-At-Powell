@@ -13,6 +13,8 @@ public class EnemyAttack : MonoBehaviour
     private float currentATK;
     private PlayerHealthManager playerHealth;
 
+    [SerializeField] private AudioClip playerHurtSoundClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,9 @@ public class EnemyAttack : MonoBehaviour
         {
             playerHealth.TakeDamage(currentATK);
             timer = attackCD;
+
+            // Play hurt sound
+            SoundEffectsManager.instance.PlaySoundFXClip(playerHurtSoundClip, transform, PlayerPrefs.GetFloat("volume"));
         }
     }
     private void OnCollisionEnter2D(Collision2D collider)

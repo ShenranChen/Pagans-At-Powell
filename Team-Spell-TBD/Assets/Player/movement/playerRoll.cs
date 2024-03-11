@@ -53,7 +53,7 @@ public class playerRoll : MonoBehaviour
             startRollAnimation();
 
             // Play roll sound
-            SoundEffectsManager.instance.PlaySoundFXClip(rollSoundClip, transform, 1f);
+            SoundEffectsManager.instance.PlaySoundFXClip(rollSoundClip, transform, PlayerPrefs.GetFloat("volume"));
         }
     }
 

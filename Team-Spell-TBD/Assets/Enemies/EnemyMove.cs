@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
@@ -8,11 +9,14 @@ public class EnemyMove : MonoBehaviour
     private Transform player;
     private bool shouldMove = true;
 
+    private SpriteRenderer sRen;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        sRen = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,6 +32,9 @@ public class EnemyMove : MonoBehaviour
 
             //move enemy toward player
             transform.Translate(direction * speed * Time.deltaTime);
+
+            //flip sprite to face right direction
+            sRen.flipX = direction.x > 0f;
         }
     }
 

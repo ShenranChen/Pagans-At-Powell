@@ -33,7 +33,8 @@ public class Rocket_ProjectileEffect : MonoBehaviour
                 rb.velocity = transform.right * projectileMoveSpeed;
                 anim.speed = 1f + playerStats.attack_speed_mod / projectileMoveSpeed;
 
-                SoundEffectsManager.instance.PlaySoundFXClip(strokeSoundClip, transform, 1f);
+                // play stroke sound
+                SoundEffectsManager.instance.PlaySoundFXClip(strokeSoundClip, transform, PlayerPrefs.GetFloat("volume"));
 
                 liveTime = -1f;
             }

@@ -51,7 +51,8 @@ public class BA_player: MonoBehaviour
         attackCountdown = (currentCooldownTime < minCooldownTime ? minCooldownTime : currentCooldownTime);
         basicAttackEvent.RaiseEvent();
 
-        SoundEffectsManager.instance.PlaySoundFXClip(basicAttackSoundClip, transform, 1f);
+        // play sound
+        SoundEffectsManager.instance.PlaySoundFXClip(basicAttackSoundClip, transform, PlayerPrefs.GetFloat("volume"));
     }
 
     public void UpgradeBasicAttack()

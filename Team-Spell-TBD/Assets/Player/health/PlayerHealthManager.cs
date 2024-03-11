@@ -16,6 +16,8 @@ public class PlayerHealthManager : MonoBehaviour
 
     private bool isDead;
 
+    [SerializeField] private AudioClip healSoundClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,5 +88,8 @@ public class PlayerHealthManager : MonoBehaviour
             shieldHealth += tempHp;
         }
         playerTakeDamage.RaiseEvent();
+
+        // Play heal sound
+        SoundEffectsManager.instance.PlaySoundFXClip(healSoundClip, transform, PlayerPrefs.GetFloat("volume"));
     }
 }
