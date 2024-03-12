@@ -10,6 +10,11 @@ public class EnemySpawn : MonoBehaviour
     public float maxSpawnRadius = 8f;
     public Transform playerTransform;
 
+    float gameAreaMinX = -23;
+    float gameAreaMaxX = 23;
+    float gameAreaMinY = -17;
+    float gameAreaMaxY = 17;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +43,10 @@ public class EnemySpawn : MonoBehaviour
 
         // Calculate the spawn position based on the player's position and the random spawn radius
         Vector3 spawnPosition = playerTransform.position + new Vector3(xOffset, yOffset, 0f);
+
+        //can't spawn enemy outside of border
+        spawnPosition.x = Mathf.Clamp(spawnPosition.x, gameAreaMinX, gameAreaMaxX);
+        spawnPosition.y = Mathf.Clamp(spawnPosition.y, gameAreaMinY, gameAreaMaxY);
 
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
