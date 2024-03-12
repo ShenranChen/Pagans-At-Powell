@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.UI;
 using Unity.PlasticSCM.Editor.WebApi;
+
 
 public class Rocket_player: MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class Rocket_player: MonoBehaviour
     // publics
     public Transform firePoint;
     public GameObject projectileEffect;
+    public UnlockedAbilitiesSO unlockedRocket;
+    public Button rocketButton;
 
     [SerializeField] private AudioClip scribbleSoundClip;
 
@@ -25,6 +29,7 @@ public class Rocket_player: MonoBehaviour
     private void Start()
     {
         currentCooldownTime = baseCooldownTime;
+        unlockedRocket.rocket = false;
     }
 
     void Update()
@@ -33,17 +38,26 @@ public class Rocket_player: MonoBehaviour
         if (attackCountdown > 0)
         {
             attackCountdown -= Time.deltaTime;
+            rocketButton.interactable = false;
+        }
+        else
+        {
+            if(unlockedRocket.rocket)
+            {
+                rocketButton.interactable = true;
+            }
         }
     }
 
     // new input manager
-    void OnAbility2()
+    public void OnAbility2()
     {
-        if (attackCountdown <= 0)
+        if (attackCountdown <= 0 && unlockedRocket.rocket)
         {
             Debug.Log("Rocket attack trig");
             rocketAbility();
         }
+        Debug.Log("do nothing");
     }
 
     private void rocketAbility()

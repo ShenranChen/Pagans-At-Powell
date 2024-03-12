@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Unity.PlasticSCM.Editor.WebApi;
+using UnityEngine.UI;
 
 public class BA_player: MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BA_player: MonoBehaviour
     // publics
     public Transform firePoint;
     public GameObject slashEffect;
+    public Button baButton;
 
     [SerializeField] private AudioClip basicAttackSoundClip;
 
@@ -32,11 +34,16 @@ public class BA_player: MonoBehaviour
         if (attackCountdown > 0)
         {
             attackCountdown -= Time.deltaTime;
+            baButton.interactable = false;
+        }
+        else
+        {
+            baButton.interactable = true;
         }
     }
 
     // new input manager
-    void OnBasicAttack()
+    public void OnBasicAttack()
     {
         if (attackCountdown <= 0)
         {

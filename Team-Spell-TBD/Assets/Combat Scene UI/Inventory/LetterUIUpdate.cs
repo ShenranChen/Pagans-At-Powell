@@ -7,7 +7,7 @@ using TMPro;
 public class LetterUIUpdate : MonoBehaviour
 {
     public LettersSO playerLetterInv;
-    public TextMeshProUGUI[] letterTexts; // Assign your UI Text elements for each letter here in the Inspector
+    public TextMeshProUGUI[] letterTexts; 
 
     public void RefreshUI()
     {

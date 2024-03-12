@@ -24,14 +24,14 @@ public class LetterDropper : MonoBehaviour
 
     void InitializeProbabilities()
     {
-        float totalKeyProb = 80f;
-        float extra4S = 2f;
+        float totalKeyProb = 90f;
+        float extraLetters = 2f;
 
-        float sProb = (totalKeyProb / 10) + extra4S;
-        float otherKeyProb = (totalKeyProb - sProb) / 9;
+        float doubleAppearanceProb = (totalKeyProb / 10) + extraLetters;
+        float otherKeyProb = (totalKeyProb - 5*doubleAppearanceProb) / 5;
 
-        int nonKeyCount = 26 - 10; //key letter: r o c k e t s l a h
-        float nonKeyProb = 20f / nonKeyCount;
+        int nonKeyCount = 26 - 10; //key letter: r o c k e t, s l a s h, h e a l
+        float nonKeyProb = 10f / nonKeyCount;
 
 
         letterProbabilities = new Dictionary<char, float>
@@ -40,12 +40,12 @@ public class LetterDropper : MonoBehaviour
             {'O', otherKeyProb},
             {'C', otherKeyProb},
             {'K', otherKeyProb},
-            {'E', otherKeyProb},
+            {'E', doubleAppearanceProb},
             {'T', otherKeyProb},
-            {'S', sProb},
-            {'L', otherKeyProb},
-            {'A', otherKeyProb},
-            {'H', otherKeyProb}
+            {'S', doubleAppearanceProb},
+            {'L', doubleAppearanceProb},
+            {'A', doubleAppearanceProb},
+            {'H', doubleAppearanceProb}
         };
 
         foreach (char letter in "BDFGIJMNPQUVWXYZ")

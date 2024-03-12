@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +11,8 @@ public class PlayerHealthManager : MonoBehaviour
     public GameEventSO playerTakeDamage;
     public PlayerStatsSO playerStats;
     public TextMeshProUGUI healthText;
-    public UnlockedAbilitiesSO unlockedAbilities;
+    public UnlockedAbilitiesSO unlockedHeal;
+    public LettersSO lettersInventory;
     public float currentHP;
     public float shieldHealth;
 
@@ -24,10 +26,7 @@ public class PlayerHealthManager : MonoBehaviour
         isDead = false;
         shieldHealth = 0;
         currentHP = playerStats.base_HP;
-
-        unlockedAbilities.ability1 = false;
-        unlockedAbilities.ability2 = false;
-
+        unlockedHeal.heal = false;
         healthText.text = currentHP.ToString() + " / " + currentHP.ToString();
 
         //GainAbility(100000);
@@ -76,6 +75,19 @@ public class PlayerHealthManager : MonoBehaviour
         shieldHealth += ab_WordLength * 10;
     }
 
+   public void OnAbility1()
+    {
+        if(unlockedHeal.heal && lettersInventory.H > 0 && lettersInventory.E > 0 &&
+            lettersInventory.A > 0 && lettersInventory.L > 0)
+        {
+            lettersInventory.H--;
+            lettersInventory.E--;
+            lettersInventory.A--;
+            lettersInventory.L--;
+
+            HealAbility();
+        }
+    }
 
     public void HealAbility()
     {
