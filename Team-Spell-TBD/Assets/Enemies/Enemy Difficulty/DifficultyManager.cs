@@ -15,7 +15,7 @@ public class DifficultyManager : MonoBehaviour
 
     private int waveNum;
     private bool isSpawnPhase;
-    private float waveLength = 60;
+    private float waveLength = 40;
     private float waveRest = 10;
 
     private float spawnIntervalSlow = 3f;
@@ -45,8 +45,8 @@ public class DifficultyManager : MonoBehaviour
 
             waveStatus.text = "Wave: " + waveNum + " | Spawn Phase: " + isSpawnPhase + " | ";
 
-            fastEnemySpawner.spawnInterval = 0;
-            slowEnemySpawner.spawnInterval = 0;
+            fastEnemySpawner.spawnInterval = 10000;
+            slowEnemySpawner.spawnInterval = 10000;
         }
         else if (!isSpawnPhase && timer > waveRest) // at end of rest phase
         {
@@ -56,8 +56,7 @@ public class DifficultyManager : MonoBehaviour
             waveNum++;
 
             waveStatus.text = "Wave: " + waveNum + " | Spawn Phase: " + isSpawnPhase + " | ";
-
-            
+                        
             IncreaseDifficulty();
 
             slowEnemySpawner.spawnInterval = spawnIntervalSlow;
@@ -65,8 +64,18 @@ public class DifficultyManager : MonoBehaviour
         }
     }
 
-    private void IncreaseDifficulty()
+    private void IncreaseDifficulty() //lower spawn interval, increase enemy attack, increase enemy HP, increase enemy SPD
     {
-        
+        spawnIntervalFast *= 0.9f;
+        spawnIntervalSlow *= 0.9f;
+
+        fastEnemyStats.baseATK *= 1.2f;
+        slowEnemyStats.baseATK *= 1.2f;
+
+        fastEnemyStats.baseHP *= 1.5f;
+        slowEnemyStats.baseHP *= 1.5f;
+
+        fastEnemyStats.baseSPD *= 1.05f;
+        slowEnemyStats.baseSPD *= 1.05f;
     }
 }
