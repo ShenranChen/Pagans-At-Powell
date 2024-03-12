@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public float speed = 1f;
+    public EnemyStatsSO enemyStats;
+    public float speed;
     private Transform player;
     private bool shouldMove = true;
 
@@ -14,6 +15,7 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = enemyStats.baseSPD;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         sRen = GetComponent<SpriteRenderer>();

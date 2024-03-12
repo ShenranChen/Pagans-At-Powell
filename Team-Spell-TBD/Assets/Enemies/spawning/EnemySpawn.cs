@@ -15,17 +15,23 @@ public class EnemySpawn : MonoBehaviour
     float gameAreaMinY = -17;
     float gameAreaMaxY = 17;
 
+    private float timer;
+
     // Start is called before the first frame update
     void Start()
     {
-        // Call SpawnEnemy function repeatedly
-        InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
+        timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer > spawnInterval)
+        {
+            SpawnEnemy();
+            timer = 0;
+        }
     }
 
     void SpawnEnemy()

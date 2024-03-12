@@ -28,6 +28,11 @@ public class AbilitiesHudBasicAttack : MonoBehaviour
             cooldown.fillAmount = currTimer / maxTimer;
             currTimer -= Time.deltaTime;
         }
+        else
+        {
+            currTimer = 0;
+            cooldown.fillAmount = 0;
+        }
     }
 
     public void StartTimer()

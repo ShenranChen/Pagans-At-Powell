@@ -5,22 +5,21 @@ using UnityEngine;
 public class EnemySetup : MonoBehaviour
 {
     // Scriptable Object
-    public LevelSO levelData;
     public EnemyStatsSO enemyStats;
 
     //class specific
     private float currentHP;
     public float currentATK;
-    public float currentSPD;
+    private float currentSPD;
 
     private LetterDropper letterDropper;
     private LetterDisplay letterDisplay;
 
     void Start()
     {
-        currentHP = enemyStats.baseHP + (levelData.enemyLevel * 0.8f);
-        currentATK = enemyStats.baseATK + (levelData.enemyLevel * 0.8f);
-        currentSPD = enemyStats.baseSPD + (levelData.enemyLevel * 0.2f);
+        currentHP = enemyStats.baseHP;
+        currentATK = enemyStats.baseATK;
+        currentSPD = enemyStats.baseSPD;
 
         letterDropper = GetComponent<LetterDropper>();
         letterDisplay = GetComponent<LetterDisplay>();
