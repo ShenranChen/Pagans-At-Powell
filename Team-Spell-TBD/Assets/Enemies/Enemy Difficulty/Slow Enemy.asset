@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f5b5e345ac19a48836151035acf741, type: 3}
   m_Name: Slow Enemy
   m_EditorClassIdentifier: 
-  baseHP: 100
-  baseATK: 20
-  baseSPD: 1
+  baseHP: 225
+  baseATK: 12
+  baseSPD: 1.1024998

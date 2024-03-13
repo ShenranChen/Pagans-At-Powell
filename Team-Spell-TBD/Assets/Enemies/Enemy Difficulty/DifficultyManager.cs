@@ -13,13 +13,13 @@ public class DifficultyManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI waveStatus;
 
-    private int waveNum;
+    public int waveNum;
     private bool isSpawnPhase;
     private float waveLength = 40;
     private float waveRest = 10;
 
-    private float spawnIntervalSlow = 3f;
-    private float spawnIntervalFast = 6f;
+    private float spawnIntervalSlow = 6f;
+    private float spawnIntervalFast = 3f;
 
     private float timer;
 
@@ -27,7 +27,7 @@ public class DifficultyManager : MonoBehaviour
     {
         timer = 0;
         isSpawnPhase = true;
-        waveNum = 0;
+        waveNum = 1;
 
         slowEnemySpawner.spawnInterval = spawnIntervalSlow;
         fastEnemySpawner.spawnInterval = spawnIntervalFast;

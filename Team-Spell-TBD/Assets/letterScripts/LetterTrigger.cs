@@ -27,6 +27,8 @@ public class LetterTrigger : MonoBehaviour
             Debug.Log("Letter Collided");
             PlayerInv playerInventory = other.GetComponent<PlayerInv>();
             playerInventory.AddLetterToInventory(gameObject.name[0]);
+            PlayerXP playerXP = other.GetComponent<PlayerXP>();
+            playerXP.CollectedLetter();
             LetterUIUpdate letterUIUpdate = FindObjectOfType<LetterUIUpdate>();
             letterUIUpdate.RefreshUI();
 

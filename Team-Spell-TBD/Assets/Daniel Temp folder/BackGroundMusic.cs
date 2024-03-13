@@ -14,7 +14,7 @@ public class BackGroundMusic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundEffectsManager.instance.PlaySoundFXClip(backgroundMusicClip, playerTransform, PlayerPrefs.GetFloat("volume"));
+        SoundEffectsManager.instance.PlaySoundFXClip(backgroundMusicClip, playerTransform, PlayerPrefs.GetFloat("volume") / 2f);
         musicLength = backgroundMusicClip.length;
     }
 
@@ -24,7 +24,7 @@ public class BackGroundMusic : MonoBehaviour
         if (musicTimer <= 0f)
         {
             musicTimer = musicLength;
-            SoundEffectsManager.instance.PlaySoundFXClip(backgroundMusicClip, playerTransform, PlayerPrefs.GetFloat("volume"));
+            SoundEffectsManager.instance.PlaySoundFXClip(backgroundMusicClip, playerTransform, PlayerPrefs.GetFloat("volume") / 2f);
         }
     }
 }

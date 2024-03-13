@@ -10,6 +10,7 @@ public class playerMovement : MonoBehaviour
 {
     // Public variables
     public GameEventSO playerDeath;
+    public PlayerStatsSO playerStats;
 
     // Private variables
     private Rigidbody2D rb;
@@ -33,7 +34,7 @@ public class playerMovement : MonoBehaviour
     {
         if (disableMovementTimer <= 0 && !playerDead) 
         {
-            rb.velocity = inputVector * playerSpeed;
+            rb.velocity = inputVector * playerSpeed * playerStats.move_speed_mod;
         }
         else 
         {
