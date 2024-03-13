@@ -14,6 +14,11 @@ public class SOResetStuff : MonoBehaviour
 
     void Start()
     {
+        RestartSO();
+    }
+
+    public void RestartSO()
+    {
         playerStats.base_HP = 100;
         playerStats.base_ATK = 100;
 
