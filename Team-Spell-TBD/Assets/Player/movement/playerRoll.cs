@@ -47,7 +47,7 @@ public class playerRoll : MonoBehaviour
             GetComponent<playerMovement>().disableMovementFor(rollDuration);
 
             // Set roll speed in current direction
-            rb.velocity *= rollSpeed / rb.velocity.magnitude;
+            if (rb.velocity.x != 0f || rb.velocity.y != 0f) { rb.velocity *= rollSpeed / rb.velocity.magnitude; }
 
             // Activate some visual effect
             startRollAnimation();
