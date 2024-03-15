@@ -8,6 +8,7 @@ public class UI_CanvasManager : MonoBehaviour
     [SerializeField] private GameObject settingParent;
     [SerializeField] private GameObject gameover;
     [SerializeField] private GameObject loadingScr;
+    [SerializeField] private GameObject inventory;
 
     public GameEventSO deathEvent;
     public GameEventSO settingsEvent;
@@ -56,7 +57,11 @@ public class UI_CanvasManager : MonoBehaviour
     {
         settingsEvent.onGameEvent.RemoveListener(CloseSettingMenu);
         settingsEvent.onGameEvent.AddListener(OpenSettingMenu);
-        Time.timeScale = 1f;
+        if (!inventory.activeSelf)
+        {
+            Time.timeScale = 1f;
+        }
+        
         if (isGameover)
         {
             settingParent.SetActive(false);

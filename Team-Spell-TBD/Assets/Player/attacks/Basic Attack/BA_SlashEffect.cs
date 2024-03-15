@@ -8,7 +8,7 @@ public class BA_SlashEffect : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
-    [SerializeField] float slashMoveSpeed = 5f;
+    [SerializeField] float slashMoveSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class BA_SlashEffect : MonoBehaviour
         anim = GetComponent<Animator>();
 
         rb.velocity = transform.right * slashMoveSpeed;
-        anim.speed = 1f + playerStats.attack_speed_mod / slashMoveSpeed;
+        anim.speed = 1 / (1+playerStats.attack_speed_mod);
     }
 
     public void DestroySelf()

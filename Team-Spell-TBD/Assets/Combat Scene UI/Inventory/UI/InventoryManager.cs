@@ -11,6 +11,7 @@ public class InventoryUIManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetFloat("volume", 0.1f);
         inventoryPanel.SetActive(false);
     }
 

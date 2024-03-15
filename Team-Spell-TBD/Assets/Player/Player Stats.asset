@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31943c927c9159240a8140ee45e27d2e, type: 3}
   m_Name: Player Stats
   m_EditorClassIdentifier: 
-  move_speed_mod: 0
+  move_speed_mod: 1.1024998
   attack_speed_mod: 0
   ability_cooldown_reduction_mod: 0
   attackSize_mod: 0
-  base_HP: 100
-  base_ATK: 100
-  base_DEF: 50
+  base_HP: 121
+  base_ATK: 121
+  a1_level: 1
+  a2_level: 1
+  ba_level: 1
+  a1_MV: 1.5
+  a2_MV: 3
+  ba_MV: 0.7

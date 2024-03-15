@@ -18,7 +18,7 @@ public class BA_player: MonoBehaviour
 
     [SerializeField] private AudioClip basicAttackSoundClip;
 
-    [SerializeField] private float baseCooldownTime = 2f;
+    [SerializeField] private float baseCooldownTime = 1.2f;
     [SerializeField] private float minCooldownTime = 0.005f;
     public float currentCooldownTime;
     private float attackCountdown = 0f;
