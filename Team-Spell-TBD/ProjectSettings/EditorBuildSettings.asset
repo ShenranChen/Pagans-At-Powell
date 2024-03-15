@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Combat Scene NEw.unity
     guid: f4d4b42ffcd7df547804fdce14f58b13
   - enabled: 0
-    path: Assets/Scenes/Kyle Test 2.unity
+    path: Assets/Scenes/Testings/Kyle Test 2.unity
     guid: a0f3d89e917b1ce40930a06877536684
   - enabled: 1
     path: Assets/Scenes/Finalized Scenes/Combat Scene Final.unity
